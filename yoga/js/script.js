@@ -583,11 +583,10 @@ window.addEventListener('DOMContentLoaded', () => {
     totalValue.innerHTML = 0;
 
     persons.addEventListener('input', function() {
-        this.value = this.value.replace(/[\D]/g, '');
+        this.value = this.value.replace(/[\D]|^0/g, '');
         personsSum = +this.value;
 
         total = (daysSum + personsSum) * 4000;
-    console.log(personsSum, daysSum, total);
 
         if (restDays.value == '' || persons.value == '') {
             totalValue.innerHTML = 0;
@@ -597,11 +596,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     restDays.addEventListener('input', function() {
-        this.value = this.value.replace(/[\D]/g, '');
+        this.value = this.value.replace(/[\D]|^0/g, '');
         daysSum = +this.value;
 
         total = (daysSum + personsSum) * 4000;
-        console.log(personsSum, daysSum, total);
 
         if (persons.value == '' || restDays.value == '') {
             totalValue.innerHTML = 0;
